@@ -32,7 +32,7 @@ describe('Register Use Case', () => {
       password: '123456'
     }
     await registerUseCase.execute(userData)
-    expect(async () => registerUseCase.execute(userData))
+    await expect(async () => registerUseCase.execute(userData))
       .rejects
       .toBeInstanceOf(EmailAlreadyExistsError)
   })
