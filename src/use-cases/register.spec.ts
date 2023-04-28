@@ -11,8 +11,8 @@ const makeSut = () => {
 
 describe('Register Use Case', () => {
   test('Should hash user password upon registration', async () => {
-    const registerUseCase = makeSut()
-    const { user } = await registerUseCase.execute({
+    const sut = makeSut()
+    const { user } = await sut.execute({
       name: 'John Doe',
       email: 'johndoe@example.com',
       password: '123456'
@@ -25,26 +25,26 @@ describe('Register Use Case', () => {
   })
 
   test('Should not be able to register with email thats already exists', async () => {
-    const registerUseCase = makeSut()
+    const sut = makeSut()
     const userData = {
       name: 'John Doe',
       email: 'johndoe@example.com',
       password: '123456'
     }
-    await registerUseCase.execute(userData)
-    await expect(async () => registerUseCase.execute(userData))
+    await sut.execute(userData)
+    await expect(async () => sut.execute(userData))
       .rejects
       .toBeInstanceOf(EmailAlreadyExistsError)
   })
 
   test('Should be able to register', async () => {
-    const registerUseCase = makeSut()
+    const sut = makeSut()
     const userData = {
       name: 'John Doe',
       email: 'johndoe@example.com',
       password: '123456'
     }
-    const { user } = await registerUseCase.execute(userData)
+    const { user } = await sut.execute(userData)
     expect(user.id).toEqual(expect.any(String))
   })
 })
