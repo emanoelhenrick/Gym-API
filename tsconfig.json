@@ -3,7 +3,7 @@
     "target": "ES2020",                    
     "module": "NodeNext",                 
     "allowJs": true,
-    "moduleResolution": "nodenext",
+    "moduleResolution": "node",
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "baseUrl": "./",
