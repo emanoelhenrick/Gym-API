@@ -6,7 +6,7 @@ GymPass Style app.
 
 Deve ser possivel:
 - [x] se cadastrar;
-- [ ] se autenticar;
+- [x] se autenticar;
 - [ ] obter o perfil de um usuário logado;
 - [ ] obter o numero de check-ins realizados peo usuário logado;
 - [ ] o usuário obter seu histórico de check-ins;
@@ -38,3 +38,6 @@ Deve ser possivel:
 3 - PostgreSQL
 4 - Docker e Docker Compose
 5 - Vitest (Coverage, UI, Units)
+6 - In Memory Database para não precisar bater no banco de dados
+7 - Sut com Factory para instanciar classes dentro de testes unitarios
+8 - Factory pra instanciar use cases
