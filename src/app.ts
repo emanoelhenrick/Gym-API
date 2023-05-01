@@ -1,4 +1,4 @@
-import fastify from 'fastify'
+import fastify, { type FastifyRequest, type FastifyError, type FastifyReply } from 'fastify'
 import { appRoutes } from './http/routes'
 import { ZodError } from 'zod'
 import { env } from './env'
@@ -7,7 +7,9 @@ export const app = fastify()
 
 app.register(appRoutes)
 
-app.setErrorHandler((error, _, res) => {
+app.setErrorHandler(validationError)
+
+function validationError (error: FastifyError, _req: FastifyRequest, res: FastifyReply) {
   if (error instanceof ZodError) {
     return res
       .status(400)
@@ -22,4 +24,4 @@ app.setErrorHandler((error, _, res) => {
     // TODO
   }
   return res.status(500).send({ message: 'Internal server error' })
-})
+}

@@ -4,11 +4,7 @@ import { type FastifyReply, type FastifyRequest } from 'fastify'
 import z from 'zod'
 
 export async function authenticate (req: FastifyRequest, res: FastifyReply) {
-  const authenticateBodySchema = z.object({
-    email: z.string().email(),
-    password: z.string().min(6)
-  })
-  const content = authenticateBodySchema.parse(req.body)
+  const content = validateAuthBody()
   try {
     const authenticateUseCase = makeAuthenticateUseCase()
     await authenticateUseCase.execute(content)
@@ -19,4 +15,12 @@ export async function authenticate (req: FastifyRequest, res: FastifyReply) {
     throw error
   }
   return await res.status(200).send()
+
+  function validateAuthBody () {
+    const authenticateBodySchema = z.object({
+      email: z.string().email(),
+      password: z.string().min(6)
+    })
+    return authenticateBodySchema.parse(req.body)
+  }
 }
