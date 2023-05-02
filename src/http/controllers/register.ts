@@ -4,10 +4,10 @@ import { type FastifyReply, type FastifyRequest } from 'fastify'
 import z from 'zod'
 
 export async function register (req: FastifyRequest, res: FastifyReply) {
-  const content = validateRegisterBody()
+  const bodyContent = validateRegisterBody(req.body)
   try {
     const registerUseCase = makeRegisterUseCase()
-    await registerUseCase.execute(content)
+    await registerUseCase.execute(bodyContent)
   } catch (error) {
     if (error instanceof EmailAlreadyExistsError) {
       return await res.status(409).send({ message: error.message })
@@ -16,12 +16,12 @@ export async function register (req: FastifyRequest, res: FastifyReply) {
   }
   return await res.status(201).send()
 
-  function validateRegisterBody () {
+  function validateRegisterBody (body: any) {
     const registerBodySchema = z.object({
       name: z.string(),
       email: z.string().email(),
       password: z.string().min(6)
     })
-    return registerBodySchema.parse(req.body)
+    return registerBodySchema.parse(body)
   }
 }

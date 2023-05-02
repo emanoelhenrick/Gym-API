@@ -34,10 +34,11 @@ Deve ser possivel:
 
 ## Conteudos aprendidos
 1 - .npmrc para manter as versões das dependencias fixas
-2 - Prisma ORM para manipulacao de banco de dados (Migrations, Prisma Studio e relações) 
+2 - Prisma ORM para manipulacao de banco de dados (Migrations, Prisma Studio e relações)
 3 - PostgreSQL
 4 - Docker e Docker Compose
 5 - Vitest (Coverage, UI, Units)
 6 - In Memory Database para não precisar bater no banco de dados
 7 - Sut com Factory para instanciar classes dentro de testes unitarios
 8 - Factory pra instanciar use cases
+9 - encriptacao com bcrypt
