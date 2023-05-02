@@ -7,7 +7,7 @@ GymPass Style app.
 Deve ser possivel:
 - [x] se cadastrar;
 - [x] se autenticar;
-- [ ] obter o perfil de um usuário logado;
+- [x] obter o perfil de um usuário logado;
 - [ ] obter o numero de check-ins realizados peo usuário logado;
 - [ ] o usuário obter seu histórico de check-ins;
 - [ ] o usuário buscar academias próximas;
