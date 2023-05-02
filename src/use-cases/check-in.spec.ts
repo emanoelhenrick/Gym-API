@@ -2,10 +2,21 @@ import { test, describe, expect, beforeEach, vi, afterEach } from 'vitest'
 import { InMemoryCheckInsRepository } from '@/repositories/in-memory/in-memory-check-ins-repository'
 import { CheckInUseCase } from './check-in'
 import { InMemoryGymsRepository } from '@/repositories/in-memory/in-memory-gyms-repository'
+import { Decimal } from '@prisma/client/runtime/library'
 
 const makeSut = () => {
   const checkInRepository = new InMemoryCheckInsRepository()
   const gymsRepository = new InMemoryGymsRepository()
+
+  gymsRepository.items.push({
+    id: 'gym-01',
+    title: 'Javascript Gym',
+    description: 'idk',
+    latitude: new Decimal(0),
+    longitude: new Decimal(0),
+    phone: ''
+  })
+
   const checkInUseCase = new CheckInUseCase(checkInRepository, gymsRepository)
   return {
     checkInRepository,
@@ -32,6 +43,7 @@ describe('Check In Use Case', () => {
 
   test('Should be able to create a new Check In', async () => {
     const { checkInUseCase } = makeSut()
+
     const { checkIn } = await checkInUseCase.execute(defaultUser)
     expect(checkIn.id).toEqual(expect.any(String))
   })
