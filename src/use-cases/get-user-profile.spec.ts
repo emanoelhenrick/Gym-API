@@ -20,4 +20,16 @@ describe('Get User Profile Use Case', () => {
       .rejects
       .toBeInstanceOf(ResourceNotFoundError)
   })
+
+  test('Should be able to return a user profile', async () => {
+    const { getUserProfileUseCase, userRepository } = makeSut()
+    const createdUser = await userRepository.create({
+      id: 'valid-user-id',
+      email: 'valid@mail.com',
+      name: 'valid-name',
+      password_hash: 'valid-password'
+    })
+    const { user } = await getUserProfileUseCase.execute({ userId: createdUser.id })
+    expect(user.email).toBe('valid@mail.com')
+  })
 })
