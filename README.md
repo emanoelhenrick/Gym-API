@@ -42,3 +42,4 @@ Deve ser possivel:
 7 - Sut com Factory para instanciar classes dentro de testes unitarios
 8 - Factory pra instanciar use cases
 9 - encriptacao com bcrypt
+10 - manipulacao de datas com o dayjs
