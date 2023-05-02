@@ -15,7 +15,7 @@ const makeSut = () => {
 describe('Get User Profile Use Case', () => {
   test('Should throws if resource do not exists', async () => {
     const { getUserProfileUseCase } = makeSut()
-    expect(async () => getUserProfileUseCase.execute({ userId: 'invalid-param' }))
+    await expect(async () => getUserProfileUseCase.execute({ userId: 'invalid-param' }))
       .rejects
       .toBeInstanceOf(ResourceNotFoundError)
   })

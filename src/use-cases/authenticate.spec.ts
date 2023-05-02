@@ -31,7 +31,7 @@ describe('Authenticate Use Case', () => {
 
   test('Should not be able to authenticate with wrong email', async () => {
     const { authenticateUseCase } = makeSut()
-    expect(async () => authenticateUseCase.execute({
+    await expect(async () => authenticateUseCase.execute({
       email: 'johndoe@example.com',
       password: '123456'
     })).rejects.toBeInstanceOf(InvalidCredentialsError)
@@ -46,7 +46,7 @@ describe('Authenticate Use Case', () => {
       password_hash: await hash('123456', 6)
     })
 
-    expect(async () => authenticateUseCase.execute({
+    await expect(async () => authenticateUseCase.execute({
       email: 'johndoe@example.com',
       password: '654321'
     })).rejects.toBeInstanceOf(InvalidCredentialsError)
