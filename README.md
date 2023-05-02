@@ -19,7 +19,7 @@ Deve ser possivel:
 # Regras de negócio (quais as condições da funcionalidade)
 
 - [x] O usuário não deve poder se cadatrar com um e-mail duplicado;
-- [ ] O usuario nao pode fazer 2 check-ins no mesmo dia;
+- [x] O usuario nao pode fazer 2 check-ins no mesmo dia;
 - [ ] O usuario nao pode fazer check-in se nao estiver perto (100m) da academia;
 - [ ] O check-in só pode ser validado ate 20 minutos após criado;
 - [ ] O check-in so pode ser validado por adms;
