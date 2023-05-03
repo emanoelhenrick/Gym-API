@@ -8,13 +8,13 @@ Deve ser possivel:
 - [x] se cadastrar;
 - [x] se autenticar;
 - [x] obter o perfil de um usuário logado;
-- [ ] obter o numero de check-ins realizados peo usuário logado;
+- [ ] obter o numero de check-ins realizados pelo usuário logado;
 - [ ] o usuário obter seu histórico de check-ins;
 - [ ] o usuário buscar academias próximas;
 - [ ] o usuário buscar academias pelo nome;
-- [ ] o usuário realizar check-in em uma academia;
+- [x] o usuário realizar check-in em uma academia;
 - [ ] validar o check-in de um usuário;
-- [ ] cadastrar uma academia;
+- [x] cadastrar uma academia;
 
 # Regras de negócio (quais as condições da funcionalidade)
 
