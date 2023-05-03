@@ -30,8 +30,6 @@ export class CheckInUseCase {
       { latitude: gym.latitude.toNumber(), longitude: gym.longitude.toNumber() }
     )
 
-    console.log(distance)
-
     const MAX_DISTANCE_IN_KILOMETERS = 0.1
     if (distance > MAX_DISTANCE_IN_KILOMETERS) throw new Error()
 
