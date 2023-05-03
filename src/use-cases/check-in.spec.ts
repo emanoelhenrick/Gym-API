@@ -3,17 +3,19 @@ import { InMemoryCheckInsRepository } from '@/repositories/in-memory/in-memory-c
 import { CheckInUseCase } from './check-in'
 import { InMemoryGymsRepository } from '@/repositories/in-memory/in-memory-gyms-repository'
 import { Decimal } from '@prisma/client/runtime/library'
+import { MaxNumberOfCheckInsError } from './errors/max-number-of-check-ins-error'
+import { MaxDistanceError } from './errors/max-distance-error'
 
-const makeSut = () => {
+const makeSut = async () => {
   const checkInRepository = new InMemoryCheckInsRepository()
   const gymsRepository = new InMemoryGymsRepository()
 
-  gymsRepository.items.push({
+  await gymsRepository.create({
     id: 'gym-01',
     title: 'Javascript Gym',
     description: 'idk',
-    latitude: new Decimal(-8.4108186),
-    longitude: new Decimal(-37.0507571),
+    latitude: -8.4108186,
+    longitude: -37.0507571,
     phone: ''
   })
 
@@ -42,7 +44,7 @@ describe('Check In Use Case', () => {
   })
 
   test('Should be able to create a new Check In', async () => {
-    const { checkInUseCase } = makeSut()
+    const { checkInUseCase } = await makeSut()
 
     const { checkIn } = await checkInUseCase.execute(defaultUser)
     expect(checkIn.id).toEqual(expect.any(String))
@@ -50,16 +52,16 @@ describe('Check In Use Case', () => {
 
   test('Should not be able to check in twice in the same day', async () => {
     vi.setSystemTime(new Date(2022, 0, 20, 8, 0, 0))
-    const { checkInUseCase } = makeSut()
+    const { checkInUseCase } = await makeSut()
     await checkInUseCase.execute(defaultUser)
     await expect(async () => checkInUseCase.execute(defaultUser))
       .rejects
-      .toBeInstanceOf(Error)
+      .toBeInstanceOf(MaxNumberOfCheckInsError)
   })
 
   test('Should be able to check in twice in different dates', async () => {
     vi.setSystemTime(new Date(2022, 0, 20, 8, 0, 0))
-    const { checkInUseCase } = makeSut()
+    const { checkInUseCase } = await makeSut()
     await checkInUseCase.execute(defaultUser)
 
     vi.setSystemTime(new Date(2022, 0, 21, 8, 0, 0))
@@ -68,7 +70,7 @@ describe('Check In Use Case', () => {
   })
 
   test('Should not be able to check in on distant gym', async () => {
-    const { checkInUseCase, gymsRepository } = makeSut()
+    const { checkInUseCase, gymsRepository } = await makeSut()
 
     gymsRepository.items.push({
       id: 'gym-02',
@@ -86,6 +88,6 @@ describe('Check In Use Case', () => {
       userLongitude: -37.0507571
     }))
       .rejects
-      .toBeInstanceOf(Error)
+      .toBeInstanceOf(MaxDistanceError)
   })
 })
