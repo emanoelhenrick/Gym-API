@@ -10,7 +10,7 @@ Deve ser possivel:
 - [x] obter o perfil de um usuário logado;
 - [x] obter o numero de check-ins realizados pelo usuário logado;
 - [x] o usuário obter seu histórico de check-ins;
-- [ ] o usuário buscar academias próximas;
+- [x] o usuário buscar academias próximas;
 - [ ] o usuário buscar academias pelo nome;
 - [x] o usuário realizar check-in em uma academia;
 - [ ] validar o check-in de um usuário;
