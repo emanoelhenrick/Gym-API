@@ -1,4 +1,4 @@
-import { type CheckInsRepository } from '@/repositories/check-ins-repository'
+import { type CheckInsRepository } from '@/repositories/protocols/check-ins-repository'
 import { type CheckIn } from '@prisma/client'
 
 interface FetchUserCheckInsHistoryUseCaseRequest {

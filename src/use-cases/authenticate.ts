@@ -1,4 +1,4 @@
-import { type UserRepository } from '@/repositories/users-repository'
+import { type UserRepository } from '@/repositories/protocols/users-repository'
 import { InvalidCredentialsError } from './errors/invalid-credentials-error'
 import { compare } from 'bcryptjs'
 import { type User } from '@prisma/client'
