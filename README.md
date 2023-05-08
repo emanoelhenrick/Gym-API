@@ -11,9 +11,9 @@ Deve ser possivel:
 - [x] obter o numero de check-ins realizados pelo usuário logado;
 - [x] o usuário obter seu histórico de check-ins;
 - [x] o usuário buscar academias próximas;
-- [ ] o usuário buscar academias pelo nome;
+- [x] o usuário buscar academias pelo nome;
 - [x] o usuário realizar check-in em uma academia;
-- [ ] validar o check-in de um usuário;
+- [x] validar o check-in de um usuário;
 - [x] cadastrar uma academia;
 
 # Regras de negócio (quais as condições da funcionalidade)
@@ -21,7 +21,7 @@ Deve ser possivel:
 - [x] O usuário não deve poder se cadatrar com um e-mail duplicado;
 - [x] O usuario nao pode fazer 2 check-ins no mesmo dia;
 - [x] O usuario nao pode fazer check-in se nao estiver perto (100m) da academia;
-- [ ] O check-in só pode ser validado ate 20 minutos após criado;
+- [x] O check-in só pode ser validado ate 20 minutos após criado;
 - [ ] O check-in so pode ser validado por adms;
 - [ ] A academia so pode ser cadastrada por adms;
 
