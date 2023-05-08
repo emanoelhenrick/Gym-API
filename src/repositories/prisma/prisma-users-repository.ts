@@ -1,6 +1,6 @@
 import { prisma } from '@/lib/prisma'
 import { type Prisma } from '@prisma/client'
-import { type UserRepository } from '../users-repository'
+import { type UserRepository } from '../protocols/users-repository'
 
 export class PrismaUsersRepository implements UserRepository {
   async create (data: Prisma.UserCreateInput) {
