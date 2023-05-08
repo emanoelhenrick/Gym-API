@@ -12,7 +12,7 @@ const makeSut = async () => {
 }
 
 describe('Search Gyms Use Case', () => {
-  test('Should be able to to search for gyms', async () => {
+  test('Should be able to search for gyms', async () => {
     const { searchGym, gymsRepository } = await makeSut()
 
     await gymsRepository.create({
