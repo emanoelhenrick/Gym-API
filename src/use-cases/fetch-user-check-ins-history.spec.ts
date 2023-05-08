@@ -12,13 +12,6 @@ const makeSut = async () => {
 }
 
 describe('Fetch User Check-in History Use Case', () => {
-  // const defaultUser = {
-  //   gymId: 'gym-01',
-  //   userId: 'user-01',
-  //   userLatitude: -8.4108186,
-  //   userLongitude: -37.0507571
-  // }
-
   test('Should be able to fetch check-in history', async () => {
     const { FetchUserCheckInsHistory, checkInRepository } = await makeSut()
 
@@ -51,7 +44,6 @@ describe('Fetch User Check-in History Use Case', () => {
     }
 
     const { checkIns } = await FetchUserCheckInsHistory.execute({ userId: 'user-01', page: 2 })
-    console.log(checkIns)
 
     expect(checkIns).toHaveLength(2)
     expect(checkIns).toEqual([
