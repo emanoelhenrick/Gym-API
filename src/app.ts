@@ -2,11 +2,13 @@ import fastify, { type FastifyRequest, type FastifyError, type FastifyReply } fr
 import { appRoutes } from './http/routes'
 import { ZodError } from 'zod'
 import { env } from './env'
+import fastifyJwt from '@fastify/jwt'
 
 export const app = fastify()
-
+app.register(fastifyJwt, {
+  secret: env.JWT_SECRET
+})
 app.register(appRoutes)
-
 app.setErrorHandler(validationError)
 
 function validationError (error: FastifyError, _req: FastifyRequest, res: FastifyReply) {
