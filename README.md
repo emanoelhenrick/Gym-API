@@ -43,3 +43,4 @@ Deve ser possivel:
 8 - Factory pra instanciar use cases
 9 - encriptacao com bcrypt
 10 - manipulacao de datas com o dayjs
+11 - criacao de ambiente de teste com o prisma
