@@ -10,16 +10,16 @@ export async function nearby (req: FastifyRequest, res: FastifyReply) {
     userLongitude: longitude
   })
   const { gyms } = fetchNearbyGymsResponse
-  return await res.status(201).send({
+  return await res.status(200).send({
     gyms
   })
 
   function validateNearbyGymQueryParams (query: any) {
     const nearbyGymsQuerySchema = z.object({
-      latitude: z.number().refine(value => {
+      latitude: z.coerce.number().refine(value => {
         return Math.abs(value) <= 90
       }),
-      longitude: z.number().refine(value => {
+      longitude: z.coerce.number().refine(value => {
         return Math.abs(value) <= 180
       })
     })
