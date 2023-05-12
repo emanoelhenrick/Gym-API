@@ -5,7 +5,7 @@ import z from 'zod'
 export async function history (req: FastifyRequest, res: FastifyReply) {
   const { page } = validateCheckInHistory(req.query)
   const fetchUserCheckInsHistoryUseCase = makeFetchUserCheckInsHistoryUseCase()
-  const checkIns = await fetchUserCheckInsHistoryUseCase.execute({
+  const { checkIns } = await fetchUserCheckInsHistoryUseCase.execute({
     userId: req.user.sub,
     page
   })
