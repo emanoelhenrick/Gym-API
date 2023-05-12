@@ -6,7 +6,7 @@ export async function search (req: FastifyRequest, res: FastifyReply) {
   const { query, page } = validateSearchGymQueryParams(req.query)
   const searchGym = makeSearchGymUseCase()
   const searchResponse = await searchGym.execute({ query, page })
-  return await res.status(201).send(searchResponse)
+  return await res.status(200).send(searchResponse)
 
   function validateSearchGymQueryParams (query: any) {
     const searchGymQuerySchema = z.object({
