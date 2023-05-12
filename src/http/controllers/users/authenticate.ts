@@ -8,8 +8,8 @@ export async function authenticate (req: FastifyRequest, res: FastifyReply) {
   try {
     const authenticateUseCase = makeAuthenticateUseCase()
     const { user } = await authenticateUseCase.execute(content)
-    const token = await res.jwtSign({}, { sign: { sub: user.id } })
-    const refreshToken = await res.jwtSign({}, { sign: { sub: user.id, expiresIn: '7d' } })
+    const token = await res.jwtSign({ role: user.role }, { sign: { sub: user.id } })
+    const refreshToken = await res.jwtSign({ role: user.role }, { sign: { sub: user.id, expiresIn: '7d' } })
     return res
       .status(200)
       .setCookie('refreshToken', refreshToken, {
