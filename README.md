@@ -1,32 +1,29 @@
 # APP
-GymPass Style app.
+A node backend for managing gym check-ins. In the style of the GymPass app.
 
-# Requisitos Funcionais (O que o usuário pode fazer)
+# Functional Requirements (What the user can do)
+It must be possible:
+- [x] register;
+- [x] authenticate;
+- [x] get the profile of a logged in user;
+- [x] get the number of check-ins performed by the logged in user;
+- [x] the user to get his check-ins history;
+- [x] the user searches for nearby gyms;
+- [x] the user search gyms by name;
+- [x] the user checks in at a gym;
+- [x] validate a user's check-in;
+- [x] register a gym;
 
-Deve ser possivel:
-- [x] se cadastrar;
-- [x] se autenticar;
-- [x] obter o perfil de um usuário logado;
-- [x] obter o numero de check-ins realizados pelo usuário logado;
-- [x] o usuário obter seu histórico de check-ins;
-- [x] o usuário buscar academias próximas;
-- [x] o usuário buscar academias pelo nome;
-- [x] o usuário realizar check-in em uma academia;
-- [x] validar o check-in de um usuário;
-- [x] cadastrar uma academia;
+# Business rules (what are the functionality conditions)
+- [x] The user must not be able to register with a duplicate email;
+- [x] The user cannot make 2 check-ins on the same day;
+- [x] The user cannot check-in if he is not close (100m) to the gym;
+- [x] Check-in can only be validated up to 20 minutes after creation;
+- [x] Check-in can only be validated by admins;
+- [x] The academy can only be registered by adms;
 
-# Regras de negócio (quais as condições da funcionalidade)
-
-- [x] O usuário não deve poder se cadatrar com um e-mail duplicado;
-- [x] O usuario nao pode fazer 2 check-ins no mesmo dia;
-- [x] O usuario nao pode fazer check-in se nao estiver perto (100m) da academia;
-- [x] O check-in só pode ser validado ate 20 minutos após criado;
-- [x] O check-in so pode ser validado por adms;
-- [x] A academia so pode ser cadastrada por adms;
-
-# Requisitos Não-Funcionais (nao partem do cliente, técnicos)
-
-- [x] A senha do usuario precisa estar criptografada;
-- [x] Os dados da aplicacao precisam estar persistidos em um banco PostgreSQL;
-- [x] Todas as listas de dados precisam estar paginadas com 20 itens por pagina;
-- [x] O usuario deve ser identificado por um JWT (JSON Web Token);
+# Non-Functional Requirements (non-customer driven, technical)
+- [x] The user's password must be encrypted;
+- [x] The application data must be persisted in a PostgreSQL database;
+- [x] All data lists need to be paginated with 20 items per page;
+- [x] The user must be identified by a JWT (JSON Web Token);
