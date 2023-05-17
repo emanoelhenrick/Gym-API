@@ -6,7 +6,7 @@ Clone the project
   git clone https://github.com/emanoelhenrick/Gym-API.git
 ```
 
-Entre no diretório do projeto
+Enter the project directory
 
 ```bash
   cd Gym-API
@@ -18,7 +18,7 @@ Install the dependencies
   npm install
 ```
 
-Set the environment variables using the .env.example file as a guide and then bring up the database container
+Set the environment variables using the .env.example file as a guide and configure the docker compose file, then bring up the database container
 
 ```bash
   docker compose up
