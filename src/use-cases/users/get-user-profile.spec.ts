@@ -1,7 +1,7 @@
 import { test, describe, expect } from 'vitest'
 import { InMemoryUsersRepository } from '@/repositories/in-memory/in-memory-users-repository'
 import { GetUserProfileUseCase } from './get-user-profile'
-import { ResourceNotFoundError } from './errors/resource-not-found-error'
+import { ResourceNotFoundError } from '../errors/resource-not-found-error'
 
 const makeSut = () => {
   const userRepository = new InMemoryUsersRepository()

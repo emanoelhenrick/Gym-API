@@ -2,7 +2,7 @@ import { test, describe, expect } from 'vitest'
 import { RegisterUseCase } from './register'
 import { compare } from 'bcryptjs'
 import { InMemoryUsersRepository } from '@/repositories/in-memory/in-memory-users-repository'
-import { EmailAlreadyExistsError } from './errors/email-already-exists-error'
+import { EmailAlreadyExistsError } from '../errors/email-already-exists-error'
 
 const makeSut = () => {
   const userRepository = new InMemoryUsersRepository()

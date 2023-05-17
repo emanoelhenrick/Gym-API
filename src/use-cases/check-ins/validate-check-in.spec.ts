@@ -1,8 +1,8 @@
 import { test, describe, expect, beforeEach, vi, afterEach } from 'vitest'
 import { InMemoryCheckInsRepository } from '@/repositories/in-memory/in-memory-check-ins-repository'
 import { ValidateCheckInUseCase } from './validate-check-in'
-import { ResourceNotFoundError } from './errors/resource-not-found-error'
-import { LateCheckInValidationError } from './errors/late-check-in-validation-error'
+import { ResourceNotFoundError } from '../errors/resource-not-found-error'
+import { LateCheckInValidationError } from '../errors/late-check-in-validation-error'
 
 const makeSut = async () => {
   const checkInRepository = new InMemoryCheckInsRepository()
