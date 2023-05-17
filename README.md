@@ -1,29 +1,81 @@
-# APP
-A node backend for managing gym check-ins. In the style of the GymPass app.
+## Running locally.
 
-# Functional Requirements (What the user can do)
-It must be possible:
-- [x] register;
-- [x] authenticate;
-- [x] get the profile of a logged in user;
-- [x] get the number of check-ins performed by the logged in user;
-- [x] the user to get his check-ins history;
-- [x] the user searches for nearby gyms;
-- [x] the user search gyms by name;
-- [x] the user checks in at a gym;
-- [x] validate a user's check-in;
-- [x] register a gym;
+Clone the project
 
-# Business rules (what are the functionality conditions)
-- [x] The user must not be able to register with a duplicate email;
-- [x] The user cannot make 2 check-ins on the same day;
-- [x] The user cannot check-in if he is not close (100m) to the gym;
-- [x] Check-in can only be validated up to 20 minutes after creation;
-- [x] Check-in can only be validated by admins;
-- [x] The academy can only be registered by adms;
+```bash
+  git clone https://github.com/emanoelhenrick/Gym-API.git
+```
 
-# Non-Functional Requirements (non-customer driven, technical)
-- [x] The user's password must be encrypted;
-- [x] The application data must be persisted in a PostgreSQL database;
-- [x] All data lists need to be paginated with 20 items per page;
-- [x] The user must be identified by a JWT (JSON Web Token);
+Entre no diretório do projeto
+
+```bash
+  cd Gym-API
+```
+
+Install the dependencies
+
+```bash
+  npm install
+```
+
+Set the environment variables using the .env.example file as a guide and then bring up the database container
+
+```bash
+  docker compose up
+```
+
+For development, start the server
+
+```bash
+  npm run dev
+```
+
+For production, build first
+
+```bash
+  npm run build
+```
+
+And then start the server
+
+```bash
+  npm start
+```
+
+## Node.js Gym Check-in Management Backend
+
+A gym check-in management system built using Node.js, inspired by the GymPass app.
+It offers the following key functionalities:
+
+1. **User Registration and Authentication:**
+   - Users can register and log in securely using email and password.
+
+2. **User Profile and Check-in Information:**
+   - Logged-in users can access their profile and view their check-in count.
+
+3. **Check-in History:**
+   - Users can retrieve their check-in history, including details of previous check-ins.
+
+4. **Gym Search:**
+   - Users can search for nearby gyms based on their location or by name.
+
+5. **Check-in Process:**
+   - Users can check in at a gym, with validation ensuring proximity within 100m.
+   - Duplicate check-ins on the same day are prevented.
+
+6. **Gym Registration:**
+   - Admin users can register new gyms within the system.
+
+## Key Business Rules
+
+- Unique email addresses are required for user registration.
+- Users must be within 100m of a gym to check in.
+- Check-ins can only be validated by admins within 20 minutes of creation.
+- Only admins can register new gyms.
+
+## Non-Functional Requirements
+
+- User passwords are encrypted for security.
+- Application data is stored and retrieved from a PostgreSQL database.
+- Data lists, such as check-in history, are paginated with 20 items per page.
+- User identification is performed using JSON Web Tokens (JWT).
