@@ -24,6 +24,12 @@ Set the environment variables using the .env.example file as a guide and configu
   docker compose up
 ```
 
+Run migrations
+
+```bash
+  npx prisma migrate dev
+```
+
 For development, start the server
 
 ```bash
